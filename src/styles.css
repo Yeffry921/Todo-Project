@@ -1,0 +1,171 @@
+/* GENERAL */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+}
+
+.flex-container {
+    height: 100%;
+    display: flex;
+}
+
+h1 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+h3 {
+    color: #fff;
+}
+
+i {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* LEFT SECTION */
+.left {
+    flex: 1;
+    background-color: #333;
+}
+
+.project__section {
+    background-color: #222;
+
+}
+
+.add__project {
+    display: flex;
+    margin: 5px 3px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add__project label {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* LEFT SECTION - PROJECTS */
+.project {
+    cursor: pointer;
+}
+
+.projectName {
+    font-size: 1.1rem;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.active {
+    background-color: rgb(73, 197, 182);
+}
+
+/* RIGHT SECTION */
+.todos-section {
+    flex: 5;
+    background-color: #222;
+}
+
+.project__input__section {
+    color: #fff;
+}
+
+.project__holder {
+    list-style: none;
+}
+
+.project-form-wrapper {
+    position: absolute;
+    max-width: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* PROJECT FORM */
+.form-control {
+    margin: 10px 0;
+}
+
+.form-control label {
+    color: #777;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.form-control .addProjectBtn {
+    cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* RIGHT SECTION TODOS */
+.todos {
+    list-style: none;
+    margin: 10px 15px;
+    font-size: 1.2rem;
+}
+
+.todos li {
+    font-size: 1.2rem;
+
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.todo-item {
+    color: #fff;
+}
+
+.flex-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ADD TASK SECTION */
+
+.task-input {
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+}
+
+.addTask {
+    padding: 5px 15px;
+    margin: 5px;
+}
