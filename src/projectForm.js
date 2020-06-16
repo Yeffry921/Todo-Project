@@ -15,4 +15,4 @@ const projectForm = () => {
         `;
 };
 
-export {projectForm}
+export {projectForm};

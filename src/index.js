@@ -9,11 +9,13 @@ const projectController = (() => {
 	if (projectsJSON !== null) {
 		projects = JSON.parse(projectsJSON);
 	}
-	const Project = function(projectName) {
-		this.projectName = projectName;
-		this.todos = [];
-		this.id = id;
-	};
+	class Project {
+		constructor(projectName, id) {
+			this.projectName = projectName;
+			this.todos = [];
+			this.id = id;
+		}
+	}
 	const saveProject = (projects) => {
 		localStorage.setItem('projects', JSON.stringify(projects));
 	};
@@ -159,8 +161,9 @@ const controller = ((projectCtrl, UICtrl) => {
 			UICtrl.showProjectForm();
 		}
 		// WHEN A TODO IS CHECKED
-		if (e.target.classList.contains('check-box')) {
-		}
+		// if (e.target.classList.contains('check-box')) {
+			
+		// }
 		// WHEN PROJECT DELETE IS CLICKED
 		if (e.target.classList.contains('deleteProject')) {
 			ctrlDeleteProject(e);

@@ -8,4 +8,4 @@ const taskForm = () => {
         `;
 };
 
-export {taskForm}
+export {taskForm};
