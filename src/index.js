@@ -9,7 +9,7 @@ const projectController = (() => {
 	if (projectsJSON !== null) {
 		projects = JSON.parse(projectsJSON);
 	}
-	const Project = function(projectName, id) {
+	const Project = function(projectName) {
 		this.projectName = projectName;
 		this.todos = [];
 		this.id = id;
@@ -17,8 +17,8 @@ const projectController = (() => {
 	const saveProject = (projects) => {
 		localStorage.setItem('projects', JSON.stringify(projects));
 	};
-	const addItem = function(projectName, id) {
-		id = projects.length;
+	const addItem = function(projectName) {
+		const id = projects.length;
 		const newProject = new Project(projectName, id);
 		projects.push(newProject);
 		saveProject(projects);
@@ -121,9 +121,8 @@ const UIController = (() => {
 // GLOBAL APP CONTROLLER
 const controller = ((projectCtrl, UICtrl) => {
 	const selectors = UICtrl.getDOMStrings();
-	// THIS IS ONE OF MY CONCERNS WITH MY CODE ATM
-	// I NEED TO FIND A BETTER WAY TO KEEP TRACK OF THE CURRENT PROJECT THAT'S BEING CLICKED
 	let currentProject;
+
 	const init = () => {
 		UICtrl.renderStartingPage(projectCtrl.projects, currentProject);
 		loadEventListeners();
@@ -190,7 +189,6 @@ const controller = ((projectCtrl, UICtrl) => {
 		
 	};
 	const ctrlDeleteTodos = (e) => {
-		console.log('wat the fuck is going on');
 		const todoIndex = parseInt(e.target.dataset.id);
 		currentProject.todos.splice(todoIndex, 1);
 		UICtrl.renderTodos(currentProject);
@@ -205,13 +203,14 @@ const controller = ((projectCtrl, UICtrl) => {
 		UICtrl.renderTodos(currentProject);
 	};
 	const ctrlAddProject = () => {
+		// 1- Get project input
 		const projectInput = UICtrl.getInput().formInput;
+		// 2- Verify its not empty and add it to the projects
 		if (projectInput.length) {
 			projectCtrl.addItem(projectInput);
 			document.querySelector('.project-form-wrapper').innerHTML = '';
 		}
-		// WHEN WE MAKE A NEW PROJECT, SELECT THAT PROJECT AND MAKE IT THE CURRENT ONE
-		// render the last one on the index, its the one we create anyway
+		// 3- Render the project
 		UICtrl.renderProjects(projectCtrl.projects);
 		UICtrl.renderTodos(currentProject);
 	};
@@ -224,8 +223,3 @@ const controller = ((projectCtrl, UICtrl) => {
 })(projectController, UIController);
 
 controller.init();
-
-// Things left to do
-
-// figure out how to add the active tab functionality
-// ask for a code review
